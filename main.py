@@ -4,7 +4,8 @@ def printList():
         print(f'{rank}: {i}')
         rank+=1
 
-rankList = []
+rankList = open('rankingList.txt', 'r').read().split('\n')
+rankList.pop()
 exit = False
 while not exit:
     print("MAIN MENU")
@@ -56,4 +57,7 @@ while not exit:
         rankList[pos - 1] = item
         printList()
     else:
+        file = open('rankingList.txt', 'w')
+        for i in rankList:
+            file.write(f'{i}\n')
         exit = True
